@@ -1,4 +1,9 @@
 .idea
+.DS_Store
 venv
 logs
 __pycache__
+data/bronze/*
+data/gold/*
+data/silver/*
+data/source/US_Accidents_March23.csv
