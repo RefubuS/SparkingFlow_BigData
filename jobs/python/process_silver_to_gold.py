@@ -48,7 +48,7 @@ def process_weather_severity_ranking(accident_df, weather_df, place_df, output_b
         avg("humidity").alias("avg_humidity")
     ).orderBy(desc("avg_severity"))
 
-    # Write the result to the golden layer
+    # Write the result to the gold layer
     weather_severity_output_path = f"{output_base_path}/weather_severity_ranking"
     weather_severity_df.write.mode("overwrite").parquet(weather_severity_output_path)
 
@@ -56,9 +56,9 @@ if __name__ == "__main__":
     import argparse
 
     # Argument parser
-    parser = argparse.ArgumentParser(description="Process silver tables to golden aggregated/linked tables using Spark")
+    parser = argparse.ArgumentParser(description="Process silver tables to gold aggregated/linked tables using Spark")
     parser.add_argument("--input_path", required=True, help="Input parquet file path for silver layer")
-    parser.add_argument("--output_path", required=True, help="Output directory path for golden layer")
+    parser.add_argument("--output_path", required=True, help="Output directory path for gold layer")
     parser.add_argument("--process", required=True, help="Process to execute (state_statistics, crossing_ranking, junction_ranking, weather_severity_ranking)")
     args = parser.parse_args()
 
